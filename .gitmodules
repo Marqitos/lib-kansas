@@ -1,0 +1,6 @@
+[submodule "src/System"]
+	path = src/System
+	url = git@bitbucket.org:Marqitos/php-system.git
+[submodule "src/Kansas"]
+	path = src/Kansas
+	url = git@bitbucket.org:Marqitos/php-kansas.git
