@@ -69,6 +69,7 @@ class StringTest extends TestCase {
         $nonEmptyString = 'foo';
         $nonString      = 5;
 
+        $this->assertTrue(StringIsNullOrEmpty(null));
         $this->assertTrue(StringIsNullOrEmpty($emptyString));
         $this->assertTrue(StringIsNullOrEmpty($spacesString));
         $this->assertFalse(StringIsNullOrEmpty($nonEmptyString));
