@@ -31,6 +31,9 @@ class ArgumentNullExceptionTest extends TestCase {
 
     /**
      * Crea la excepción con los minimos parametros posibles
+     * 
+     * @covers System\ArgumentNullException::__construct
+     * @covers System\ArgumentException::getParamName
      */
     public function testCreateMin() {
         $aException = new ArgumentNullException(self::$paramName);
@@ -42,6 +45,9 @@ class ArgumentNullExceptionTest extends TestCase {
 
     /**
      * Crea la excepción con los parametros habituales
+     * 
+     * @covers System\ArgumentNullException::__construct
+     * @covers System\ArgumentException::getParamName
      */
     public function testCreate() {
         $aException = new ArgumentNullException(self::$paramName, self::$message);
@@ -53,6 +59,8 @@ class ArgumentNullExceptionTest extends TestCase {
 
     /**
      * Lanza la excepción
+     * 
+     * @covers System\ArgumentNullException::__construct
      */
     public function testThrowException() {
         $this->expectException(ArgumentNullException::class);
@@ -62,20 +70,25 @@ class ArgumentNullExceptionTest extends TestCase {
 
     /**
      * Comprobamos el valor de una variable
+     * 
+     * @covers System\ArgumentNullException::__construct
+     * @covers System\ArgumentNullException::validate
      */
     public function testValidateNull() {
         $this->expectException(ArgumentNullException::class);
         $this->expectExceptionCode(HResults::E_POINTER);
-        $result = ArgumentNullException::validate(self::$paramName, null);
+        ArgumentNullException::validate(self::$paramName, null);
         
     }
 
     /**
      * Comprobamos el valor de una variable
+     * 
+     * @covers System\ArgumentNullException::validate
      */
     public function testValidateNotNull() {
-        $result = ArgumentNullException::validate(self::$paramName, self::$value);
-        $this->assertTrue($result);
+        ArgumentNullException::validate(self::$paramName, self::$value);
+        $this->assertTrue(true);
     }
 
 

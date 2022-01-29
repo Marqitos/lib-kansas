@@ -34,6 +34,9 @@ class ArgumentOutOfRangeExceptionTest extends TestCase {
 
     /**
      * Crea la excepción con los minimos parametros posibles
+     * 
+     * @covers System\ArgumentOutOfRangeException::__construct
+     * @covers System\ArgumentException::getParamName
      */
     public function testCreateMin() {
         $aException = new ArgumentOutOfRangeException(self::$paramName);
@@ -45,6 +48,9 @@ class ArgumentOutOfRangeExceptionTest extends TestCase {
 
     /**
      * Crea la excepción con los parametros basicos
+     * 
+     * @covers System\ArgumentOutOfRangeException::__construct
+     * @covers System\ArgumentException::getParamName
      */
     public function testCreate() {
         $aException = new ArgumentOutOfRangeException(self::$paramName, self::$message);
@@ -56,6 +62,11 @@ class ArgumentOutOfRangeExceptionTest extends TestCase {
 
     /**
      * Crea la excepción con los parametros habituales
+     * 
+     * @covers System\ArgumentOutOfRangeException::__construct
+     * @covers System\ArgumentOutOfRangeException::getActualValue
+     * @covers System\ArgumentOutOfRangeException::getTypeValue
+     * @covers System\ArgumentException::getParamName
      */
     public function testCreateInteger() {
         $aException = new ArgumentOutOfRangeException(self::$paramName, self::$messageString, self::$valueInteger);
@@ -69,6 +80,11 @@ class ArgumentOutOfRangeExceptionTest extends TestCase {
 
     /**
      * Crea la excepción con los parametros habituales
+     * 
+     * @covers System\ArgumentOutOfRangeException::__construct
+     * @covers System\ArgumentOutOfRangeException::getActualValue
+     * @covers System\ArgumentOutOfRangeException::getTypeValue
+     * @covers System\ArgumentException::getParamName
      */
     public function testCreateString() {
         $aException = new ArgumentOutOfRangeException(self::$paramName, self::$messageInteger, self::$valueString);
@@ -82,6 +98,8 @@ class ArgumentOutOfRangeExceptionTest extends TestCase {
 
     /**
      * Lanza la excepción
+     * 
+     * @covers System\ArgumentOutOfRangeException::__construct
      */
     public function testThrowException() {
         $this->expectException(ArgumentOutOfRangeException::class);

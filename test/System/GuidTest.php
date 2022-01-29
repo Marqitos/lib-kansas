@@ -24,6 +24,12 @@ class GuidTest extends TestCase {
 
     /**
      * Comprueba la funcionalidad de Guid::getEmpty()
+     * 
+     * @covers System\Guid::getEmpty
+     * @covers System\Guid::getHex
+     * @covers System\Guid::getIsEmpty
+     * @covers System\Guid::getRaw
+     * @covers System\Guid::isEmpty
      */
     public function testEmptyGuid(){
         $emptyGuid = Guid::getEmpty();
@@ -43,6 +49,18 @@ class GuidTest extends TestCase {
         $this->assertEquals(Guid::getEmpty(), $emptyGuid);
     }
 
+    /**
+     * Comprueba los metodos de la clase Guid
+     * 
+     * @covers System\Guid::__construct
+     * @covers System\Guid::__toString
+     * @covers System\Guid::getHex
+     * @covers System\Guid::getIsEmpty
+     * @covers System\Guid::getRaw
+     * @covers System\Guid::isEmpty
+     * @covers System\Guid::newGuid
+     * @covers System\Guid::tryParse
+     */
     public function testGuid() {
 
         $guidInstance = Guid::newGuid();
@@ -76,21 +94,24 @@ class GuidTest extends TestCase {
         // Comprueba el valor de Guid como string
         $this->assertEquals($guidString, (string)$guidFromString);
         $this->assertEquals($guidString, (string)$guidFromHex);
-
     }
 
     /**
      * Comprobamos que no se puede crear un Guid con un parametro q no sea un string o Guid
+     * 
+     * @covers System\Guid::__construct
      */
     public function testContructorException1() {
         require_once 'System/ArgumentOutOfRangeException.php';
 
         $this->expectException(ArgumentOutOfRangeException::class);
-        $guidInstance = new Guid(58);
+        new Guid(58);
     }
 
     /**
      * Comprobamos que el string debe ser una cadena hexadecimal
+     * 
+     * @covers System\Guid::__construct
      */
     public function testContructorException2() {
         require_once 'System/ArgumentOutOfRangeException.php';
@@ -98,11 +119,13 @@ class GuidTest extends TestCase {
         $guidString = 'f25d5a6c-a242-4ccb-a980-8dacc680f20jl';
 
         $this->expectException(ArgumentOutOfRangeException::class);
-        $guidInstance = new Guid($guidString);
+        new Guid($guidString);
     }
 
     /**
      * Comprobamos que el string debe tener la longitud correcta
+     * 
+     * @covers System\Guid::__construct
      */
     public function testContructorException3() {
         require_once 'System/ArgumentOutOfRangeException.php';
@@ -110,11 +133,13 @@ class GuidTest extends TestCase {
         $guidString = 'f25d5a6c-a242-4ccb-a980-8dacc680f206f';
 
         $this->expectException(ArgumentOutOfRangeException::class);
-        $guidInstance = new Guid($guidString);
+        new Guid($guidString);
     }
 
     /**
      * Comprobamos que el string debe tener la longitud correcta
+     * 
+     * @covers System\Guid::__construct
      */
     public function testContructorException4() {
         require_once 'System/ArgumentOutOfRangeException.php';
@@ -122,7 +147,7 @@ class GuidTest extends TestCase {
         $guidString = 'f25d5a6c-a242-4ccb-a980-8dacc680f20';
 
         $this->expectException(ArgumentOutOfRangeException::class);
-        $guidInstance = new Guid($guidString);
+        new Guid($guidString);
     }
 
 }

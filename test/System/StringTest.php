@@ -22,6 +22,8 @@ class StringTest extends TestCase {
 
     /**
      * Comprueba el funcionamiento de la función startWith
+     * 
+     * @covers System\String\startWith
      */
     public function testStartWith(){
         require_once 'System/String/startWith.php';
@@ -51,6 +53,11 @@ class StringTest extends TestCase {
         $this->assertFalse(StringStartWith($string2, $string3, true));
     }
 
+    /**
+     * Comprueba el funcionamiento de la función slugify
+     * 
+     * @covers System\String\slugify
+     */
     public function testSlugify() {
         require_once 'System/String/slugify.php';
 
@@ -61,6 +68,11 @@ class StringTest extends TestCase {
 
     }
 
+    /**
+     * Comprueba el funcionamiento de la función isNullOrEmpty
+     * 
+     * @covers System\String\isNullOrEmpty
+     */
     public function testIsNullOrEmpty() {
         require_once 'System/String/isNullOrEmpty.php';
 

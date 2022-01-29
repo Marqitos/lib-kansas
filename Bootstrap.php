@@ -5,7 +5,6 @@ namespace test;
 use function error_reporting;
 use function get_include_path;
 use function ini_set;
-use function realpath;
 use function set_include_path;
 
 // Mostramos todos los errores

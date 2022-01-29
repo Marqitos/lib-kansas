@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Comprueba el funcionamiento de ArgumentException
  *
@@ -30,6 +30,9 @@ class ArgumentExceptionTest extends TestCase {
 
     /**
      * Crea la excepción con los minimos parametros posibles
+     * 
+     * @covers System\ArgumentException::__construct
+     * @covers System\ArgumentException::getParamName
      */
     public function testCreateMin() {
         $aException = new ArgumentException(self::$paramName);
@@ -41,6 +44,9 @@ class ArgumentExceptionTest extends TestCase {
 
     /**
      * Crea la excepción con los parametros habituales
+     * 
+     * @covers System\ArgumentException::__construct
+     * @covers System\ArgumentException::getParamName
      */
     public function testCreate() {
         $aException = new ArgumentException(self::$paramName, self::$message);
@@ -52,6 +58,8 @@ class ArgumentExceptionTest extends TestCase {
 
     /**
      * Lanza la excepción
+     * 
+     * @covers System\ArgumentException::__construct
      */
     public function testThrowException() {
         $this->expectException(ArgumentException::class);
