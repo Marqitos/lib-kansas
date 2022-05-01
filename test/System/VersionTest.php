@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 /**
  * Comprueba el funcionamiento del objeto System\Version
  *
@@ -18,6 +18,14 @@ use System\Version;
  */
 class VersionTest extends TestCase {
 
+    /**
+     * Comprobamos el funcionamiento de la clase System\Version
+     * 
+     * @covers System\Version::__construct
+     * @covers System\Version::__toString
+     *
+     * @return void
+     */
     public function testVersion() {
         require_once 'System/Version.php';
         $versionInstance = new Version(5);
@@ -32,5 +40,7 @@ class VersionTest extends TestCase {
         $this->assertEquals(new Version('6.1'), $versionOtherInstance);
         $this->assertNotEquals($versionInstance, $versionOtherInstance);
     }
+
+    // TODO: Comprobar el funcionamiento de los métodos de la clase System\Version
 
 }

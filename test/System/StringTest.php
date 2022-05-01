@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 /**
  * Comprueba el funcionamiento de las funciones de System\String
  *
